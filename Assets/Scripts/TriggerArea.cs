@@ -5,7 +5,8 @@ using UnityEngine.AI;
 
 public class TriggerArea : MonoBehaviour
 {
-    
+    [SerializeField] private GameObject canvas;
+    [SerializeField] private ParticleSystem effect;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +23,9 @@ public class TriggerArea : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Well Done! You found the treasure!");
+            canvas.SetActive(true);
+            effect.Play();
+            
         }
     }
 }
